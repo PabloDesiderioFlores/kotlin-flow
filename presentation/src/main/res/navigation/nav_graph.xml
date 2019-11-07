@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sortingHatFragment">
+
+    <fragment
+        android:id="@+id/sortingHatFragment"
+        android:name="ar.com.pabloflores.harrypotter.ui.fragment.SortingHatFragment"
+        android:label="fragment_sorting_hat"
+        tools:layout="@layout/fragment_sorting_hat">
+        <action
+            android:id="@+id/action_sortingHatFragment_to_characterFragment"
+            app:destination="@id/characterFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="ar.com.pabloflores.harrypotter.ui.fragment.CharacterFragment"
+        android:label="fragment_character"
+        tools:layout="@layout/fragment_character" />
+    <fragment
+        android:id="@+id/spellsFragment"
+        android:name="ar.com.pabloflores.harrypotter.ui.fragment.SpellsFragment"
+        android:label="fragment_spells"
+        tools:layout="@layout/fragment_spells" />
+</navigation>

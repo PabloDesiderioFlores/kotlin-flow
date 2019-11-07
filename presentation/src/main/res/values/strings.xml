@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Harry Potter</string>
+    <string name="hat">Hat</string>
+    <string name="house_selection_text">Write your name, and you will know your house</string>
+    <string name="hat_enter_your_name">Enter your name</string>
+    <string name="hat_btn_know_your_house">know your house</string>
+    <string name="know_your_school_mates">Know your School Mates</string>
+</resources>
