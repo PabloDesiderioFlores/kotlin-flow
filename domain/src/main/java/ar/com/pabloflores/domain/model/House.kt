@@ -1,6 +1,12 @@
 package ar.com.pabloflores.domain.model
 
-/**
- * Created by Pablo Flores on 30/10/19.
- */
-data class House(val name: String)
+data class House(
+    val id: String,
+    val name: String,
+    val mascot: String,
+    val headOfHouse: String,
+    val houseGhost: String,
+    val founder: String,
+    val school: String?,
+    val values: List<String>
+)

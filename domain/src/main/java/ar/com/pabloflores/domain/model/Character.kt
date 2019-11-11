@@ -6,5 +6,5 @@ data class Character(
     val house: String,
     val name: String,
     val role: String,
-    val school: String
+    val school: String?
 )

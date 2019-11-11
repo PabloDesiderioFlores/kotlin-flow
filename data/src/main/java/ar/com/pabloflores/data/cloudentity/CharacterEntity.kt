@@ -13,7 +13,7 @@ data class CharacterEntity(
     @SerializedName("house")
     val house: String,
     @SerializedName("school")
-    val school: String,
+    val school: String?,
     @SerializedName("bloodStatus")
     val bloodStatus: String
 )

@@ -7,7 +7,7 @@
 
         <variable
             name="character"
-            type="ar.com.pabloflores.domain.model.Character" />
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:id="@+id/id_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{character.name}"
+            android:text="@{character}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

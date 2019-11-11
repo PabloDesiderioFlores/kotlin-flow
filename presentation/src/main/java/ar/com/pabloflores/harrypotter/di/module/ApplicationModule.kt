@@ -2,6 +2,7 @@ package ar.com.pabloflores.harrypotter.di.module
 
 import ar.com.pabloflores.data.Config
 import ar.com.pabloflores.data.cloudentity.mapper.CharacterDataMapper
+import ar.com.pabloflores.data.cloudentity.mapper.HouseDataMapper
 import ar.com.pabloflores.data.datasource.CharacterCloudDataStore
 import ar.com.pabloflores.data.datasource.CharacterDataStore
 import ar.com.pabloflores.data.datasource.HouseCloudDataStore
@@ -32,6 +33,7 @@ import javax.inject.Singleton
 /**
  * Created by Pablo Flores on 30/10/19.
  */
+@ExperimentalCoroutinesApi
 @Module(includes = [AndroidInjectionModule::class])
 class ApplicationModule {
     @Provides
@@ -101,14 +103,12 @@ class ApplicationModule {
     }
 
     //region repository
-    @ExperimentalCoroutinesApi
     @Provides
     @Singleton
     fun provideHouseRepository(houseRepositoryImpl: HouseRepositoryImpl): HouseRepository {
         return houseRepositoryImpl
     }
 
-    @ExperimentalCoroutinesApi
     @Provides
     @Singleton
     fun provideCharacterRepository(characterRepositoryImpl: CharacterRepositoryImpl): CharacterRepository {
@@ -132,6 +132,11 @@ class ApplicationModule {
     @Provides
     fun provideCharacterDataMapper(): CharacterDataMapper {
         return CharacterDataMapper()
+    }
+
+    @Provides
+    fun provideHouseInfoDataMapper(): HouseDataMapper {
+        return HouseDataMapper()
     }
 
     //region error handler

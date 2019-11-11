@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import ar.com.pabloflores.harrypotter.R
 import ar.com.pabloflores.harrypotter.databinding.FragmentSortingHatBinding
-import ar.com.pabloflores.harrypotter.ui.viewmodel.HouseViewModel
+import ar.com.pabloflores.harrypotter.ui.viewmodel.SortingHatViewModel
 import ar.com.pabloflores.harrypotter.util.House
 import dagger.android.support.DaggerFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -29,8 +29,8 @@ class SortingHatFragment : DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: HouseViewModel by lazy {
-        ViewModelProviders.of(this, viewModelFactory).get(HouseViewModel::class.java)
+    private val viewModel: SortingHatViewModel by lazy {
+        ViewModelProviders.of(this, viewModelFactory).get(SortingHatViewModel::class.java)
     }
 
     private lateinit var vKnowYourHouseButton: Button
@@ -73,7 +73,7 @@ class SortingHatFragment : DaggerFragment() {
                 vSchoolMates.visibility = View.VISIBLE
             })
             error.observe(this@SortingHatFragment, Observer {
-                Timber.e("SortingHat Fragment %s ", it.message)
+                Timber.e("SortingHatUseCase Fragment %s ", it.message)
             })
         }
     }

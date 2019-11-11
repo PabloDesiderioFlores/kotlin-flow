@@ -9,11 +9,13 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
 /**
  * Created by Pablo Flores on 30/10/19.
  */
+@ExperimentalCoroutinesApi
 @Singleton
 @Component(
     modules = [AndroidSupportInjectionModule::class, ApplicationModule::class,

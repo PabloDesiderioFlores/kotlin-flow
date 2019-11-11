@@ -14,6 +14,7 @@ import ar.com.pabloflores.harrypotter.R
 import ar.com.pabloflores.harrypotter.databinding.FragmentCharacterBinding
 import ar.com.pabloflores.harrypotter.ui.adapter.CharacterAdapter
 import ar.com.pabloflores.harrypotter.ui.viewmodel.CharacterViewModel
+import ar.com.pabloflores.harrypotter.ui.viewmodel.HouseInfoViewModel
 import ar.com.pabloflores.harrypotter.util.House
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_character.view.*
@@ -28,8 +29,8 @@ import javax.inject.Inject
 class CharacterFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: CharacterViewModel by lazy {
-        ViewModelProviders.of(this, viewModelFactory).get(CharacterViewModel::class.java)
+    private val viewModel: HouseInfoViewModel by lazy {
+        ViewModelProviders.of(this, viewModelFactory).get(HouseInfoViewModel::class.java)
     }
 
     private var characterAdapter: CharacterAdapter? = null
@@ -58,10 +59,10 @@ class CharacterFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getCharactersByHouse(House.SLYTHERIN)
+        viewModel.getHouseInfo(House.SLYTHERIN)
         with(viewModel) {
-            characters.observe(this@CharacterFragment, Observer { characters ->
-                characterAdapter?.characters = characters
+            houseInfo.observe(this@CharacterFragment, Observer { houseInfo ->
+                characterAdapter?.characters = houseInfo.values
                 view.loading_spinner.visibility = View.GONE
             })
             error.observe(this@CharacterFragment, Observer {

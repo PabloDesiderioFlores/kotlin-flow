@@ -6,6 +6,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.pabloflores.domain.model.Character
+import ar.com.pabloflores.domain.model.HouseInfo
 import ar.com.pabloflores.harrypotter.R
 import ar.com.pabloflores.harrypotter.databinding.CharacterItemBinding
 
@@ -14,7 +15,7 @@ import ar.com.pabloflores.harrypotter.databinding.CharacterItemBinding
  */
 class CharacterAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
 
-    var characters: List<Character> = emptyList()
+    var characters: List<String> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()

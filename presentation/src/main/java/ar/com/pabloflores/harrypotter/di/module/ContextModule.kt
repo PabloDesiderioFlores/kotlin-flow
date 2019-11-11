@@ -5,11 +5,13 @@ import android.content.Context
 import ar.com.pabloflores.harrypotter.di.builder.ViewModelFactoryBuilder
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
 /**
  * Created by Pablo Flores on 04/11/19.
  */
+@ExperimentalCoroutinesApi
 @Module(includes = [ViewModelFactoryBuilder::class])
 class ContextModule {
     @Provides
