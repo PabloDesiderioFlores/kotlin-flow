@@ -5,10 +5,12 @@ import ar.com.pabloflores.domain.repository.CharacterRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import ar.com.pabloflores.domain.model.Character
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 /**
  * Created by Pablo Flores on 30/10/19.
  */
+@ExperimentalCoroutinesApi
 class GetCharactersUseCase @Inject constructor(
     private val characterRepository: CharacterRepository
 ) : BaseUseCase<List<Character>>() {
