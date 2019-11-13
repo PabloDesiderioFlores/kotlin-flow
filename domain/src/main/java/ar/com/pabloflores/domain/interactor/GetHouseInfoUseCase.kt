@@ -23,17 +23,12 @@ class GetHouseInfoUseCase @Inject constructor(
     lateinit var house: String
 
     override suspend fun executeOnBackground(): Flow<HouseInfo> {
-
-        val values =
-            houseRepository.getHouses()
-                .filter { house -> house.any { it.name == this.house } }
-                .map {
-                    it.first().values
-                }
-
-        val characters = characterRepository.getCharactersByHouse(house)
-
-        return values.zip(characters) { house, character -> HouseInfo(house, character) }
+        return houseRepository.getHouses()
+            .filter { house -> house.any { it.name == this.house } }
+            .map { it.first().values }
+            .zip(characterRepository.getCharactersByHouse(house)) { values, characters ->
+                HouseInfo(values, characters)
+            }
     }
 
     fun config(house: String) {

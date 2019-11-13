@@ -21,7 +21,7 @@ class HouseInfoViewModel @Inject constructor(
     private val errorHandler: ErrorHandler
 ) : ViewModel() {
     val houseInfo: MutableLiveData<HouseInfo> by lazy { MutableLiveData<HouseInfo>() }
-    val error: MutableLiveData<Exception> by lazy { MutableLiveData<Exception>() }
+    val error: MutableLiveData<ErrorModel> by lazy { MutableLiveData<ErrorModel>() }
 
     fun getHouseInfo(house: String) {
         getHouseInfoUseCase.config(house)
@@ -33,9 +33,9 @@ class HouseInfoViewModel @Inject constructor(
                     }
                 }
             }
-
             onError {
-                error.value = it
+                val errorModel = errorHandler.handleError(it)
+                error.value = errorModel
             }
         }
     }
