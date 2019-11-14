@@ -11,13 +11,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ar.com.pabloflores.harrypotter.R
-import ar.com.pabloflores.harrypotter.databinding.FragmentCharacterBinding
-import ar.com.pabloflores.harrypotter.ui.adapter.CharacterAdapter
-import ar.com.pabloflores.harrypotter.ui.viewmodel.CharacterViewModel
+import ar.com.pabloflores.harrypotter.databinding.FragmentHouseInfoBinding
+import ar.com.pabloflores.harrypotter.ui.adapter.HouseInfoAdapter
 import ar.com.pabloflores.harrypotter.ui.viewmodel.HouseInfoViewModel
 import ar.com.pabloflores.harrypotter.util.House
 import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.fragment_character.view.*
+import kotlinx.android.synthetic.main.fragment_house_info.view.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import timber.log.Timber
 import javax.inject.Inject
@@ -26,32 +25,32 @@ import javax.inject.Inject
  * Created by Pablo Flores on 06/11/19.
  */
 @ExperimentalCoroutinesApi
-class CharacterFragment : DaggerFragment() {
+class HouseInfoFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private val viewModel: HouseInfoViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory).get(HouseInfoViewModel::class.java)
     }
 
-    private var characterAdapter: CharacterAdapter? = null
+    private var houseInfoAdapter: HouseInfoAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentCharacterBinding>(
+        val binding = DataBindingUtil.inflate<FragmentHouseInfoBinding>(
             inflater,
-            R.layout.fragment_character,
+            R.layout.fragment_house_info,
             container,
             false
         )
 
-        characterAdapter = CharacterAdapter()
+        houseInfoAdapter = HouseInfoAdapter()
 
         binding.root.findViewById<RecyclerView>(R.id.character_recycler_view).apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = characterAdapter
+            adapter = houseInfoAdapter
         }
 
         return binding.root
@@ -61,13 +60,13 @@ class CharacterFragment : DaggerFragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getHouseInfo(House.SLYTHERIN)
         with(viewModel) {
-            houseInfo.observe(this@CharacterFragment, Observer { houseInfo ->
-                characterAdapter?.characters = houseInfo.values
+            houseInfo.observe(this@HouseInfoFragment, Observer { houseInfo ->
+                houseInfoAdapter?.addHouseInfo(houseInfo)
                 view.loading_spinner.visibility = View.GONE
             })
-            error.observe(this@CharacterFragment, Observer {
+            error.observe(this@HouseInfoFragment, Observer {
                 view.loading_spinner.visibility = View.GONE
-                Timber.e(String.format("CharacterFragment %s ", it?.message))
+                Timber.e(String.format("HouseInfoFragment %s ", it?.message))
             })
         }
     }

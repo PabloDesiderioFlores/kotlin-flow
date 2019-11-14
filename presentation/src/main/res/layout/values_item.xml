@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="character"
-            type="ar.com.pabloflores.harrypotter.ui.model.CharacterUI" />
+            name="values"
+            type="ar.com.pabloflores.harrypotter.ui.model.ValuesUI" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,10 +16,10 @@
         android:layout_margin="16dp">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/id_category"
+            android:id="@+id/id_values"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{character.name}"
+            android:text="@{values.values}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

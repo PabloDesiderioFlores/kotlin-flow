@@ -11,18 +11,18 @@
         android:label="fragment_sorting_hat"
         tools:layout="@layout/fragment_sorting_hat">
         <action
-            android:id="@+id/action_sortingHatFragment_to_characterFragment"
-            app:destination="@id/characterFragment"
+            android:id="@+id/action_sortingHatFragment_to_houseInfoFragment"
+            app:destination="@id/houseInfoFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/characterFragment"
-        android:name="ar.com.pabloflores.harrypotter.ui.fragment.CharacterFragment"
+        android:id="@+id/houseInfoFragment"
+        android:name="ar.com.pabloflores.harrypotter.ui.fragment.HouseInfoFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_character" />
+        tools:layout="@layout/fragment_house_info" />
     <fragment
         android:id="@+id/spellsFragment"
         android:name="ar.com.pabloflores.harrypotter.ui.fragment.SpellsFragment"

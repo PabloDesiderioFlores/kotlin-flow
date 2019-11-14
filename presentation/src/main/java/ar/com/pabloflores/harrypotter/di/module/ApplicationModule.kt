@@ -18,6 +18,7 @@ import ar.com.pabloflores.data.repository.CharacterRepositoryImpl
 import ar.com.pabloflores.data.repository.HouseRepositoryImpl
 import ar.com.pabloflores.domain.repository.CharacterRepository
 import ar.com.pabloflores.domain.repository.HouseRepository
+import ar.com.pabloflores.harrypotter.ui.model.mapper.HouseInfoDataMapperUI
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -137,6 +138,11 @@ class ApplicationModule {
     @Provides
     fun provideHouseInfoDataMapper(): HouseDataMapper {
         return HouseDataMapper()
+    }
+
+    @Provides
+    fun provideHouseInfoDataMapperUI(): HouseInfoDataMapperUI {
+        return HouseInfoDataMapperUI()
     }
 
     //region error handler

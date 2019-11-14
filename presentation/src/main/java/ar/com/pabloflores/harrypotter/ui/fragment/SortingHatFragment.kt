@@ -49,7 +49,7 @@ class SortingHatFragment : DaggerFragment() {
 
         binding.btnKnowYourSchoolMates.setOnClickListener { v: View ->
             v.findNavController()
-                .navigate(SortingHatFragmentDirections.actionSortingHatFragmentToCharacterFragment())
+                .navigate(SortingHatFragmentDirections.actionSortingHatFragmentToHouseInfoFragment())
         }
 
         vKnowYourHouseButton = binding.btnKnowYourHouse
