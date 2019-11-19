@@ -6,90 +6,103 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
 
-            <ImageView
-                android:id="@+id/iv_hat"
-                android:layout_width="@dimen/hat_size"
-                android:layout_height="@dimen/hat_size"
-                android:layout_marginTop="@dimen/margin_top_hat"
-                android:contentDescription="@string/hat"
-                android:src="@drawable/hat"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tv_house_selection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/potter"
-                android:text="@string/house_selection_text"
-                android:textSize="28sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_hat" />
+                <ImageView
+                    android:id="@+id/iv_hat"
+                    android:layout_width="@dimen/hat_size"
+                    android:layout_height="@dimen/hat_size"
+                    android:layout_marginTop="@dimen/margin_top_hat"
+                    android:contentDescription="@string/hat"
+                    android:src="@drawable/hat"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/et_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/et_house_selection_margin_top"
-                android:hint="@string/hat_enter_your_name"
-                android:inputType="text"
-                android:fontFamily="@font/potter"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_house_selection" />
+                <TextView
+                    android:id="@+id/tv_house_selection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/potter"
+                    android:text="@string/house_selection_text"
+                    android:textSize="40sp"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_hat" />
 
-            <ProgressBar
-                android:id="@+id/loading_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/et_house_selection_margin_top"
+                    android:fontFamily="@font/potter"
+                    android:hint="@string/hat_enter_your_name"
+                    android:inputType="text"
+                    android:textSize="28sp"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_house_selection" />
 
-            <Button
-                android:id="@+id/btn_know_your_house"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/btn_know_your_house"
-                android:text="@string/hat_btn_know_your_house"
-                android:fontFamily="@font/potter"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_name" />
+                <ProgressBar
+                    android:id="@+id/loading_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/iv_house"
-                android:layout_width="300dp"
-                android:layout_height="230dp"
-                android:layout_marginTop="16dp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_know_your_house"
-                tools:visibility="visible" />
+                <Button
+                    android:id="@+id/btn_know_your_house"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/btn_know_your_house"
+                    android:fontFamily="@font/potter"
+                    android:text="@string/hat_btn_know_your_house"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_name" />
 
-            <Button
-                android:id="@+id/btn_know_your_school_mates"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/know_your_school_mates"
-                android:visibility="gone"
-                android:fontFamily="@font/potter"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_house"
-                tools:visibility="visible" />
+                <ImageView
+                    android:id="@+id/iv_house"
+                    android:layout_width="300dp"
+                    android:layout_height="230dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_know_your_house"
+                    tools:visibility="visible" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/btn_know_your_school_mates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/potter"
+                    android:text="@string/know_your_school_mates"
+                    android:visibility="gone"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_house"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </FrameLayout>
 </layout>

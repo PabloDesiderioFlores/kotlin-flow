@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,7 +18,9 @@ import ar.com.pabloflores.harrypotter.databinding.FragmentSortingHatBinding
 import ar.com.pabloflores.harrypotter.ui.viewmodel.SortingHatViewModel
 import ar.com.pabloflores.harrypotter.util.House
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.fragment_sorting_hat.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -71,6 +74,10 @@ class SortingHatFragment : DaggerFragment() {
                 vHouse.visibility = View.VISIBLE
                 setImage(house)
                 vSchoolMates.visibility = View.VISIBLE
+                runBlocking {
+                    scroll_view.fullScroll(ScrollView.FOCUS_DOWN)
+                }
+
             })
             error.observe(this@SortingHatFragment, Observer {
                 Timber.e("SortingHatUseCase Fragment %s ", it.message)

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-
-        <variable
-            name="character"
-            type="ar.com.pabloflores.harrypotter.ui.model.CharacterUI" />
-    </data>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,17 +8,17 @@
         android:layout_margin="16dp">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/id_category"
+            android:id="@+id/id_values"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{character.name}"
+            android:fontFamily="@font/potter"
+            android:gravity="center_horizontal"
+            android:text="@string/house_values"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="35sp"
-            android:gravity="center_horizontal"
-            android:fontFamily="@font/potter"
-            tools:text="Harry Potter" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -23,7 +23,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textSize="22sp"
+            android:textSize="40sp"
+            android:gravity="center_horizontal"
             android:fontFamily="@font/potter"
             tools:text="Harry Potter" />
 

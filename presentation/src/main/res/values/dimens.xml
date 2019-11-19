@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="hat_size">200dp</dimen>
+    <dimen name="hat_size">250dp</dimen>
     <dimen name="margin_top_hat">25dp</dimen>
     <dimen name="et_house_selection_margin_top">8dp</dimen>
     <dimen name="btn_know_your_house">20dp</dimen>
