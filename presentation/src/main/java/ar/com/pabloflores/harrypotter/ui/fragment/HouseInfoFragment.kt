@@ -14,7 +14,6 @@ import ar.com.pabloflores.harrypotter.R
 import ar.com.pabloflores.harrypotter.databinding.FragmentHouseInfoBinding
 import ar.com.pabloflores.harrypotter.ui.adapter.HouseInfoAdapter
 import ar.com.pabloflores.harrypotter.ui.viewmodel.HouseInfoViewModel
-import ar.com.pabloflores.harrypotter.util.House
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_house_info.view.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -33,6 +32,7 @@ class HouseInfoFragment : DaggerFragment() {
     }
 
     private var houseInfoAdapter: HouseInfoAdapter? = null
+    private lateinit var house: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,12 +53,14 @@ class HouseInfoFragment : DaggerFragment() {
             adapter = houseInfoAdapter
         }
 
+        house = this.arguments?.let { HouseInfoFragmentArgs.fromBundle(it).house }.toString()
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getHouseInfo(House.SLYTHERIN)
+        viewModel.getHouseInfo(house)
         with(viewModel) {
             houseInfo.observe(this@HouseInfoFragment, Observer { houseInfo ->
                 houseInfoAdapter?.addHouseInfo(houseInfo)

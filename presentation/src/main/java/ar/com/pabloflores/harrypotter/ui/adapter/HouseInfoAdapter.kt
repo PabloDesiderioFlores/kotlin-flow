@@ -3,6 +3,7 @@ package ar.com.pabloflores.harrypotter.ui.adapter
 import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
 import androidx.recyclerview.widget.RecyclerView
+import ar.com.pabloflores.harrypotter.ui.adapter.constants.HouseInfoAdapterConstants
 import ar.com.pabloflores.harrypotter.ui.adapter.delegate.CharacterTitleDelegateAdapter
 import ar.com.pabloflores.harrypotter.ui.adapter.delegate.CharactersDelegateAdapter
 import ar.com.pabloflores.harrypotter.ui.adapter.delegate.ValuesDelegateAdapter

@@ -1,4 +1,4 @@
-package ar.com.pabloflores.harrypotter.ui.adapter
+package ar.com.pabloflores.harrypotter.ui.adapter.constants
 
 /**
  * Created by Pablo Flores on 14/11/19.

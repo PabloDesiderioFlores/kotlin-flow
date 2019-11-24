@@ -22,7 +22,11 @@
         android:id="@+id/houseInfoFragment"
         android:name="ar.com.pabloflores.harrypotter.ui.fragment.HouseInfoFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_house_info" />
+        tools:layout="@layout/fragment_house_info" >
+        <argument
+            android:name="house"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/spellsFragment"
         android:name="ar.com.pabloflores.harrypotter.ui.fragment.SpellsFragment"

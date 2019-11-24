@@ -1,7 +1,7 @@
 package ar.com.pabloflores.harrypotter.ui.model
 
 import android.os.Parcelable
-import ar.com.pabloflores.harrypotter.ui.adapter.HouseInfoAdapterConstants
+import ar.com.pabloflores.harrypotter.ui.adapter.constants.HouseInfoAdapterConstants
 import ar.com.pabloflores.harrypotter.ui.adapter.ViewType
 import kotlinx.android.parcel.Parcelize
 
