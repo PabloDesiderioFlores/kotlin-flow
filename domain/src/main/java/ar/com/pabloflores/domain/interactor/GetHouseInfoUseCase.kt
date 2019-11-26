@@ -6,7 +6,6 @@ import ar.com.pabloflores.domain.repository.CharacterRepository
 import ar.com.pabloflores.domain.repository.HouseRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.zip
 import javax.inject.Inject
@@ -24,8 +23,7 @@ class GetHouseInfoUseCase @Inject constructor(
 
     override suspend fun executeOnBackground(): Flow<HouseInfo> {
         return houseRepository.getHouses()
-            .filter { house -> house.any { it.name == this.house } }
-            .map { it.first().values }
+            .map { houses -> houses.first { it.name == this.house }.values }
             .zip(characterRepository.getCharactersByHouse(house)) { values, characters ->
                 HouseInfo(values, characters)
             }
